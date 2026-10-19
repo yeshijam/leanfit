@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeanFit — My Personal Fitness Coach</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="min-h-screen flex flex-col md:flex-row selection:bg-emerald-500 selection:text-black">
+
+  <!-- DESKTOP SIDEBAR -->
+  <aside class="hidden md:flex md:flex-col md:w-64 bg-bgCard border-r border-borderSubtle shrink-0 select-none">
+    <div class="p-6 border-b border-borderSubtle flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg bg-accentMuted border border-emerald-500/30 flex items-center justify-center text-accent font-bold text-lg">
+        LF
+      </div>
+      <div>
+        <h1 class="font-bold text-base tracking-tight text-white">LeanFit</h1>
+        <p class="text-xs text-gray-400">Personal Fitness Coach</p>
+      </div>
+    </div>
+    <nav id="desktop-nav" class="flex-1 p-3 space-y-1 overflow-y-auto"></nav>
+    <div class="p-4 m-3 rounded-lg bg-bgElevated border border-borderSubtle text-xs text-gray-400 space-y-1">
+      <div class="flex items-center justify-between text-gray-300 font-medium">
+        <span>Storage Status</span>
+        <span class="text-accent flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span> Saved Locally</span>
+      </div>
+      <p class="text-[11px] leading-relaxed text-gray-500">Data stays private in this browser. Use Settings to export JSON backups.</p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT AREA -->
+  <div class="flex-1 flex flex-col min-w-0 pb-20 md:pb-0">
+    <!-- TOP HEADER -->
+    <header class="sticky top-0 z-30 bg-bgMain/90 backdrop-blur border-b border-borderSubtle px-4 md:px-8 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="md:hidden w-8 h-8 rounded-lg bg-accentMuted border border-emerald-500/30 flex items-center justify-center text-accent font-bold text-sm">LF</div>
+        <div>
+          <h2 id="header-title" class="text-base md:text-lg font-semibold text-white">Dashboard</h2>
+          <p id="header-date" class="text-xs text-gray-400"></p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <div id="unfinished-banner" class="hidden">
+          <button onclick="resumeWorkout()" class="px-3 py-1.5 rounded-lg bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-medium flex items-center gap-1.5 hover:bg-amber-500/25 transition">
+            <i data-lucide="play-circle" class="w-3.5 h-3.5"></i> Resume Session
+          </button>
+        </div>
+        <span id="header-week-badge" class="px-3 py-1 rounded-full bg-accentMuted border border-emerald-500/30 text-accent text-xs font-medium">
+          Week 1 of 12
+        </span>
+      </div>
+    </header>
+
+    <!-- VIEW CONTAINER -->
+    <main id="app-view" class="flex-1 p-4 md:p-8 max-w-6xl w-full mx-auto space-y-6"></main>
+  </div>
+
+  <!-- MOBILE BOTTOM NAVIGATION -->
+  <nav id="mobile-nav" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-bgCard border-t border-borderSubtle flex justify-around items-center py-1.5 px-1 select-none"></nav>
+
+  <!-- MODAL CONTAINER -->
+  <div id="modal-backdrop" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div id="modal-content" class="bg-bgCard border border-borderSubtle rounded-xl max-w-lg w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto shadow-2xl"></div>
+  </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
